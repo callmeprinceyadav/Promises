@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        
+        *{
+            padding: 20px;
+        }
+        body{
+            background-color: rgb(238, 238, 238);
+            display: flex;
+        }
+
+        #table{
+            /* border: 2px solid yellow; */
+            font-size: 30px;
+            padding: 5px;
+            margin-top: 2px;
+            text-align: center;
+            background-color: rgb(224, 0, 149);
+            color: aliceblue;
+            align-items: center;
+
+        
+        }
+
+        #mainbox{
+            /* border: 2px solid red; */
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+            /* margin: auto; */
+            width: 400px;
+            padding: 5px;
+            height: auto;
+            display: flex;
+            flex-direction:column;
+            background-color: rgb(175, 154, 185);
+            /* justify-content: space-between; */
+            border-radius: 5px;
+        }
+
+        .food{
+   
+            margin-bottom: 2px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+            
+
+        }
+
+        
+
+        input[type="submit"] {
+            margin-top: 20px;
+            align-self: center;
+            padding: 5px;
+        }
+
+        .order-completed {
+                margin-top: 20px;
+                text-align: center;
+                background-color: #dff0d8;
+                padding: 20px;
+                border: 1px solid #d6e9c6;
+            }
+
+        #hidden {
+            display: none;
+            /* margin-left: 10px;
+            */
+            margin: auto;
+            width: auto;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }       
+
+
+        .logo {
+        max-width: 100px;
+        height: 100px;
+        }
+        
+
+    </style>
+
+
+
+</head>
+<body>
+    <div id="mainbox">
+        <div id="table">
+            McDonald's Menu
+        </div>
+
+        <div class="food">
+            <input type="checkbox" id="burger">
+            <label for="burger">BURGER &#127828;</label>
+        </div>
+        <div class="food">
+            <input type="checkbox" id="pizza">
+            <label for="pizza">PIZZA &#127829;</label>
+        </div>
+        <div class="food">
+            <input type="checkbox" id="fried_chicken">
+            <label for="fried-chicken">FRIED CHICKEN &#127831;</label>
+        </div>
+        <div class="food">
+            <input type="checkbox" id="cold_drink">
+            <label for="cold-drink">COLD DRINK &#127866;</label>
+        </div>
+
+        <button id="order-btn" style="margin-top: 20px;cursor: pointer;">Order Placed</button>
+
+    </div>
+
+
+    <div class="order-completed" id="hidden">
+            <img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAi8IdNGARfPDsdKakva3iUGyFvi-jhVyNkQ&usqp=CAU" alt="Logo">
+            <h2 style="color: green;">Order Placed!</h2>
+            <!-- <p style="color: #f033c7;">Your order has been successfully placed. Thank you!</p> -->
+  
+        <p>Your order number is:<span id="order-number">OD-123457898</span></p>
+    </div>
+
+    <script>
+
+            let button = document.getElementById("order-btn");
+
+            button.addEventListener("click",function(e){
+                // console.log("succesfull done")
+            
+                let randomtime = Math.floor(Math.random() * 1000)
+                
+                setTimeout(function(){
+                    new Promise(function(resolve,reject){
+                        document.getElementById("hidden").style.display = 'block'
+
+                        randomid = "O-ID" + Math.floor(Math.random()*1000000000)
+                        document.getElementById("order-number").innerHTML = randomid
+
+                        resolve("promised resolved")
+
+                    }).then(res => {
+                        console.log(res)
+                    })
+
+                },randomtime)
+                
+            })
+        
+
+        
+    </script>
+</body>
+</html>
